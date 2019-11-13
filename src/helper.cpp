@@ -1,12 +1,9 @@
-#include<string>
-#include<vector>
-using std::string;
-using std::vector;
+#include "helper.h"
 
 /**
  * From: http://www.cplusplus.com/articles/2wA0RXSz/ 
  */
-const vector<string> explode(const string& s, const char& c)
+const vector<string> Helper::explode(const string& s, const char& c)
 {
 	string buff{""};
 	vector<string> v;

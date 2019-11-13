@@ -50,7 +50,7 @@ vector<pair<string, int>> Reader::read_chain_file(string chaingang) {
             if (line_count == 0) {
                 num_lines = std::stoi(line);
             }
-            vector<string> splits{explode(line, ' ')};
+            vector<string> splits{Helper::explode(line, ' ')};
             entries.push_back(std::make_pair(splits[0], std::stoi(splits[1])));
         }
     }
