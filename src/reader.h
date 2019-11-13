@@ -18,6 +18,7 @@
 #include <ifaddrs.h>
 
 #include "connection.h"
+#include "helper.cpp"
 
 using std::string;
 using std::tuple;

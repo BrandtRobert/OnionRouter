@@ -27,5 +27,5 @@ public:
 private:
     static int receive_data_with_error_checking(int client_fd, const char* buffer, int length);
     static int send_data_with_error_checking(int fd, const char* data, int length);
-}
+};
 #endif

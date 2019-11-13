@@ -1,22 +1,27 @@
 CXX=c++
-LDFLAGS=
+
+EXE = test
+
+SRC_DIR = src
+OBJ_DIR = bin
+
+SRC = $(wildcard $(SRC_DIR)/*.cpp)
+OBJ = $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
+
 CFLAGS=-Wall -g -c -std=c++11 -stdlib=libc++
-SOURCES=main.cpp steppingstone.cpp
-OBJECTS=main.o steppingstone.o
-HEADERS=steppingstone.h
-EXECUTABLE=test
-TARFILE=onion-reutimann.tar
+LDFLAGS=
 
-all: $(SOURCES) $(EXECUTABLE)
+.PHONY: all clean
 
-$(EXECUTABLE): $(OBJECTS)
-	$(CXX) $(LDFLAGS) $(OBJECTS) -o $@
+all: $(EXE)
 
-.cpp.o:
+$(EXE): $(OBJ)
+	@echo "Object files " $^
+	$(CXX) $(LDFLAGS) $^ -o $@
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@echo "Building file " $<
 	$(CXX) $(CFLAGS) $< -o $@
 
 clean:
-	rm *.o chat $(TARFILE)
-
-tar:
-	tar -cvf $(TARFILE) *.cpp *.h Makefile
+	rm -rf $(OBJ_DIR)/*.o

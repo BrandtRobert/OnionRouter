@@ -1,5 +1,4 @@
 #include "reader.h"
-#include "helper.cpp"
 
 bool Reader::fetch(string url, string chainfile) {
     vector<pair<string, int>> chainfile_entries = read_chain_file(chainfile);
